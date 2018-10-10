@@ -20,6 +20,8 @@ allprojects {
 
 Add dependency to application `build.gradle` file, where `x.y.z` is the latest [release version](https://github.com/ChiliLabs/FireLike/releases):
 
+[![](https://jitpack.io/v/ChiliLabs/FireLike.svg)](https://jitpack.io/#ChiliLabs/FireLike)
+
 ```
 implementation "com.github.ChiliLabs:FireLike:x.y.z"
 ```
