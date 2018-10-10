@@ -6,7 +6,23 @@ Configurable icon animation wrapper.
 
 ## Setup
 
-// TODO publish to repo and post instructions here
+Add Jitpack to your root `build.gradle` file:
+
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+Add dependency to application `build.gradle` file, where `x.y.z` is the latest [release version](https://github.com/ChiliLabs/FireLike/releases):
+
+```
+implementation "com.github.ChiliLabs:FireLike:x.y.z"
+```
 
 ## Icon emitter
 
