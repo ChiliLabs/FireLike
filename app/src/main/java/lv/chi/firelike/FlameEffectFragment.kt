@@ -7,14 +7,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.fragment_sample.*
 import lv.chi.firelike.common.SAMPLE_TEXT
 import lv.chi.firelike.common.SampleAdapter
-import lv.chi.firelike.providers.*
 import java.util.*
 
 class FlameEffectFragment : Fragment() {
@@ -35,35 +31,7 @@ class FlameEffectFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lm = LinearLayoutManager(context)
 
-        iconEmitter = IconEmitterManager(sample_root, IconEmitterConfig(
-            iconResource = R.drawable.ic_thumb_blue,
-            interpolatorProvider = RandomInterpolatorProvider(
-                AccelerateDecelerateInterpolator(),
-                LinearInterpolator(),
-                AccelerateInterpolator()
-            ),
-            durationProvider = RandomValueInRangeProvider(
-                minValue = 600f,
-                maxValue = 800f,
-                random = random
-            ),
-            translationYProvider = RandomOffsetInRangeProvider(
-                minOffset = -300f,
-                maxOffset = -600f,
-                random = random
-            ),
-            translationXProvider = RandomCurveKeypointProvider(
-                minOffset = 20f,
-                maxOffset = 50f,
-                maxKeyPoints = 6,
-                random = random
-            ),
-            scaleValueProvider = RandomGrowShrinkProvider(
-                minScale = 0.33f,
-                random = random
-            ),
-            alphaValueProvider = FadeOutAlphaValueProvider()
-        ))
+        iconEmitter = IconEmitterManager(sample_root, DefaultConfigs.flame(R.drawable.ic_thumb_blue, random))
 
         sample_recycler.apply {
             adapter = SampleAdapter(SAMPLE_TEXT) {

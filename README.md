@@ -30,7 +30,7 @@ implementation "com.github.ChiliLabs:FireLike:x.y.z"
 
 Emitted icon animation is designed to be highly configurable while keeping the API as simple as possible. Each created icon is animated on it's own by calling the value providers in the configuration.
 
-* Create `IconEmitterManager` in your activity or fragment (or any other UI controller). It requires root `ViewGroup` of current layout and [configuration](flyinglikes/src/main/java/lv/chi/flyinglikes/emitting/IconEmitterConfig.kt) instance.
+* Create `IconEmitterManager` in your activity or fragment (or any other UI controller). It requires root `ViewGroup` of current layout and [configuration](FireLike/src/main/java/lv/chi/firelike/emitting/IconEmitterConfig.kt) instance.
 
 ``` kotlin
 private lateinit var iconEmitter: IconEmitterManager
@@ -56,17 +56,19 @@ iconEmitter = IconEmitterManager(
 
 * **Icon Resource** - resource id that will be used to draw each icon.
 
-* `InterpolatorProvider` - returns an [interpolator](https://developer.android.com/reference/android/view/animation/Interpolator) that is applied to all animations on single icon, may be different for different icons. [More options](flyinglikes/src/main/java/lv/chi/flyinglikes/providers/InterpolatorProvider.kt)
+* `InterpolatorProvider` - returns an [interpolator](https://developer.android.com/reference/android/view/animation/Interpolator) that is applied to all animations on single icon, may be different for different icons. [More options](FireLike/src/main/java/lv/chi/firelike/providers/InterpolatorProvider.kt)
 
-* `DurationValueProvider` - returns an amount of milliseconds that the animation will be played. [More options](flyinglikes/src/main/java/lv/chi/flyinglikes/providers/DurationValueProvider.kt)
+* `DurationValueProvider` - returns an amount of milliseconds that the animation will be played. [More options](FireLike/src/main/java/lv/chi/firelike/providers/DurationValueProvider.kt)
 
-* `TranslationValueProvider` for X and Y axis - returns an array of key positions of the the icon on the respective axis beginning from position of view provided to `likeManager.addLikeFromView(view)`. [More options](flyinglikes/src/main/java/lv/chi/flyinglikes/providers/TranslationValueProvider.kt)
+* `TranslationValueProvider` for X and Y axis - returns an array of key positions of the the icon on the respective axis beginning from position of view provided to `likeManager.addLikeFromView(view)`. [More options](FireLike/src/main/java/lv/chi/firelike/providers/TranslationValueProvider.kt)
 
-* `ScaleValueProvider` - returns a relative scale where `1.0f` equals no change, `0.5f` equals to icon with half of original width and height, etc. [More options](flyinglikes/src/main/java/lv/chi/flyinglikes/providers/ScaleValueProvider.kt)
+* `ScaleValueProvider` - returns a relative scale where `1.0f` equals no change, `0.5f` equals to icon with half of original width and height, etc. [More options](FireLike/src/main/java/lv/chi/firelike/providers/ScaleValueProvider.kt)
 
-* `AlphaValueProvider` - returns a value between `0.0f` and `1.0f` where 0 - completly transparent and 1 - no transparancy. [More options](flyinglikes/src/main/java/lv/chi/flyinglikes/providers/AlphaValueProvider.kt)
+* `AlphaValueProvider` - returns a value between `0.0f` and `1.0f` where 0 - completly transparent and 1 - no transparancy. [More options](FireLike/src/main/java/lv/chi/firelike/providers/AlphaValueProvider.kt)
 
 ## Noteworthy details
+
+* Few predefined configs [are available](FireLike/src/main/java/lv/chi/firelike/DefaultConfigs) in `DefaultConfigs` object. Those pre0defined configs could be easily adjusted using `config.copy()` or used as a reference for custom implementation.
 
 * None of the built-in providers are dependant on time, but such features could be implemented using custom value providers.
 
